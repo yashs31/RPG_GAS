@@ -29,9 +29,9 @@ void AAuraPlayerController::CursorTrace()
 	LastActor = ThisActor;
 	ThisActor=CursorHit.GetActor(); // no need to cast because the variable is of the interface type
 
-	if (LastActor == nullptr)
+	if (LastActor.GetInterface() == nullptr)
 	{
-		if (ThisActor!=nullptr)
+		if (ThisActor.GetInterface()!=nullptr)
 		{
 			//LastActor null and ThisActor not null
 			ThisActor->HighlightActor();
@@ -44,7 +44,7 @@ void AAuraPlayerController::CursorTrace()
 	else
 	{
 		//LastACtor not null
-		if (ThisActor == nullptr)
+		if (ThisActor.GetInterface() == nullptr)
 		{
 			LastActor->UnHighlightActor();
 		}
